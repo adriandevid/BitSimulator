@@ -10,7 +10,7 @@ function IniciarPercusoDeInstrucoes() {
 }
 
 function CoresDeCaixas() {
-	var corDePC = document.getElementById("Component3");
+	var corDePC = document.getElementById("PC");
 	var corDaUC = document.getElementById("UC");
 	corDePC.style.fill = "green";
 	contadorDePassos += 1;
