@@ -4,7 +4,7 @@ var contadorDeEnderecosCompletos = 0;
 var ValorDeCadaTabela;
 var contadorDePassos = 0;
 var EnderoBusca = 1;
-
+var IsEnderecoContar = 0;
 function IniciarPercusoDeInstrucoes() {
 	intervalosDeChamandaDeFuncao = setInterval(CoresDeCaixas, 500);
 }
