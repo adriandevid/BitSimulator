@@ -41,11 +41,9 @@ function AdicionarComando() {
 			contadorDeCond += 1;
 			if (3 <= InstrucaoDecomposta.length <= 4) {
 				if (InstrucaoDecomposta[0] == Instrucoes[contador]) {
-					if (
-						InstrucaoDecomposta.length == 4 &&
-						(InstrucaoDecomposta[0] == "ADD" ||
-							InstrucaoDecomposta[0] == "SUB" ||
-							InstrucaoDecomposta[0] == "DIV")
+					if (InstrucaoDecomposta.length == 4 && (InstrucaoDecomposta[0] == "ADD" ||
+						InstrucaoDecomposta[0] == "SUB" ||
+						InstrucaoDecomposta[0] == "DIV")
 					) {
 						Regist = [];
 						Regist.push(InstrucaoDecomposta[1]);
@@ -236,4 +234,10 @@ function TrocarCorPorEndereco(id, cor) {
 	ValorDeCadaTabela.style.backgroundColor = cor;
 }
 
-function ExecutarPercursoEmAleatorio() {}
+function ExecutarPercursoEmAleatorio() { }
+
+function DeixarMaiusculo() {
+	document.getElementById("EntradaDeInstrucao").value = document
+		.getElementById("EntradaDeInstrucao")
+		.value.toUpperCase();
+}
