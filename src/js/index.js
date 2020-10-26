@@ -14,7 +14,6 @@ function CoresDeCaixas() {
 	var corDaUC = document.getElementById("UC");
 	corDePC.style.fill = "green";
 	contadorDePassos += 1;
-	console.log(contadorDePassos);
 	if (contadorDePassos > 3) {
 		corDePC.style.fill = "white";
 		if (contadorDePassos > 6 && contadorDePassos < 10) {
@@ -126,7 +125,6 @@ function AdicionarComando() {
 										AlertErrorColor.style = "border:2px solid green;";
 										InstrucoesDeEntrada.push(valorDeInput);
 										contadorDeEnderecosCompletos += 1;
-										console.log(InstrucoesDeEntrada);
 										AdicionarComandoNaMemoria(
 											contadorDeEnderecosCompletos,
 											valorDeInput
@@ -191,7 +189,6 @@ function AdicionarComando() {
 				var AlertErrorColor = document.getElementById("EntradaDeInstrucao");
 				AlertErrorColor.style = "border:2px solid green;";
 				DadosDeEntrada.push(valorDeInput);
-				console.log(DadosDeEntrada);
 				contadorDeEnderecosCompletos += 1;
 				AdicionarComandoNaMemoria(contadorDeEnderecosCompletos, valorDeInput);
 				contadorDeCond = 0;
@@ -208,6 +205,13 @@ function AdicionarComando() {
 				IsEnderecoContar = 0;
 			}
 		}
+	} else  {
+		var AlertErrorColor = document.getElementById("EntradaDeInstrucao");
+		AlertErrorColor.style = "border:2px solid red;";
+		alert("Quantidade de dados/Instrucões excedeu o limite!!");
+		contadorDeCond = 0;
+		IsRegistradorContar = 0;
+		IsEnderecoContar = 0;
 	}
 }
 
