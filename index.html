@@ -56,6 +56,7 @@
 							type="search"
 							placeholder="Inserir Comando"
 							aria-label="Inserir Comando"
+							oninput="DeixarMaiusculo()"
 						/>
 						<li
 							class="btn btn-success btn-sm mr-3"
@@ -146,12 +147,12 @@
 						<polygon
 							class="StyleFont"
 							id="R4"
-							points=" 700 200, 900 200, 900 300,700 300"	
+							points=" 700 200, 900 200, 900 300,700 300"
 						></polygon>
 						<polygon
 							class="StyleFont"
 							id="subR4"
-							points=" 710 240, 890 240, 890 290,710 290"	
+							points=" 710 240, 890 240, 890 290,710 290"
 						></polygon>
 
 						<polygon
@@ -202,31 +203,31 @@
 							id="subULA2"
 							points=" 200 620, 292 620, 277 690, 182 690"
 						></polygon>
-						
+
 						<text x="65" y="85" fill="black" id="text0">PC</text>
 						<text x="115" y="85" fill="black" id="input0">00</text>
 
-						<text x="490" y="225" fill="black" id="text1">R3</text>
-						<text x="480" y="270" fill="black" id="input1">0000</text>
+						<text x="490" y="75" fill="black" id="text1">R1</text>
+						<text x="480" y="120" fill="black" id="input1">0000</text>
 
-						<text x="190" y="225" fill="black" id="text2">IR</text>
-						<text x="180" y="270" fill="black" id="input2">####</text>
+						<text x="790" y="75" fill="black" id="text2">R2</text>
+						<text x="780" y="120" fill="black" id="input2">0000</text>
 
-						<text x="790" y="225" fill="black" id="text3">R4</text>
-						<text x="780" y="270" fill="black" id="input3">0000</text>
+						<text x="490" y="225" fill="black" id="text3">R3</text>
+						<text x="480" y="270" fill="black" id="input3">0000</text>
 
-						<text x="490" y="75" fill="black" id="text4">R1</text>
-						<text x="480" y="120" fill="black" id="input4">0000</text>
+						<text x="790" y="225" fill="black" id="text4">R4</text>
+						<text x="780" y="270" fill="black" id="input4">0000</text>
 
-						<text x="790" y="75" fill="black" id="text5">R2</text>
-						<text x="780" y="120" fill="black" id="input5">0000</text>
+						<text x="190" y="225" fill="black" id="text5">IR</text>
+						<text x="180" y="270" fill="black" id="input5">####</text>
 
 						<text x="635" y="640" fill="black" id="text6">UC</text>
 						<text x="625" y="740" fill="black" id="input6">####</text>
 
-						<text x="155" y=750 fill="black" id="text7">ULA</text>
-						<text x="80" y=660 fill="black" id="input7_1">00000</text>
-						<text x="215" y=660 fill="black" id="input7_2">00000</text>
+						<text x="155" y="750" fill="black" id="text7">ULA</text>
+						<text x="80" y="660" fill="black" id="input7_1">00000</text>
+						<text x="215" y="660" fill="black" id="input7_2">00000</text>
 					</svg>
 				</div>
 				<div class="col-md-3">
@@ -326,7 +327,25 @@
 		<script type="text/javascript">
 			var InstrucoesDeEntrada = [];
 			var DadosDeEntrada = [];
-			var EnderecoInstrucaoDado = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"];
+			var EnderecoInstrucaoDado = [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7",
+				"8",
+				"9",
+				"10",
+				"11",
+				"12",
+				"13",
+				"14",
+				"15",
+				"16",
+				"17",
+			];
 
 			var Instrucoes = ["LOAD", "STO", "ADD", "SUB", "DIV"];
 			var Registradores = ["R1", "R2", "R3", "R4", "IR"];

@@ -18,6 +18,11 @@
 	flex-direction: row-reverse;
 }
 
+td,
+th {
+	background-color: white;
+}
+
 p {
 	color: white;
 }
@@ -41,4 +46,3 @@ p {
 .row {
 	margin-top: 35px;
 }
-

@@ -36,7 +36,7 @@ function AdicionarComando() {
 	var valorDeInput = document.getElementById("EntradaDeInstrucao").value;
 	var InstrucaoDecomposta = valorDeInput.split(" ");
 	var contadorDeCond = 0;
-	if (contadorDeEnderecosCompletos != 20) {
+	if (contadorDeEnderecosCompletos != 17) {
 		for (var contador = 0; contador < Instrucoes.length; contador++) {
 			contadorDeCond += 1;
 			if (3 <= InstrucaoDecomposta.length <= 4) {
@@ -211,17 +211,17 @@ function AdicionarComando() {
 	}
 }
 
-function game() {
-	ContadorDeEspacoPercorrido += 100;
-	ObjectMov.setAttribute("cx", ContadorDeEspacoPercorrido);
+// function game() {
+// 	ContadorDeEspacoPercorrido += 100;
+// 	ObjectMov.setAttribute("cx", ContadorDeEspacoPercorrido);
 
-	if (ContadorDeEspacoPercorrido == 1000) {
-		clearInterval(intervalosDeChamandaDeFuncao);
-		console.log("fim de jogo!!");
-		ObjectMov.setAttribute("cx", 1200);
-		ContadorDeEspacoPercorrido = 0;
-	}
-}
+// 	if (ContadorDeEspacoPercorrido == 1000) {
+// 		clearInterval(intervalosDeChamandaDeFuncao);
+// 		console.log("fim de jogo!!");
+// 		ObjectMov.setAttribute("cx", 1200);
+// 		ContadorDeEspacoPercorrido = 0;
+// 	}
+// }
 
 // Contador de espaço na memoria
 function AdicionarComandoNaMemoria(id, Entrada) {
@@ -236,4 +236,38 @@ function TrocarCorPorEndereco(id, cor) {
 	ValorDeCadaTabela.style.backgroundColor = cor;
 }
 
-function ExecutarPercursoEmAleatorio() {}
+function DeixarMaiusculo() {
+	document.getElementById("EntradaDeInstrucao").value = document.getElementById("EntradaDeInstrucao").value.toUpperCase()
+}
+
+// Variaveis de atribuição da instrução LOAD/STO
+let registrador = '', dado = '', intervalo = ''
+function Funcionalidades() {
+	let operacao = ''
+	for (let k = 1; k <= 17; k++) {
+		if (document.getElementById('td' + k).innerHTML != '') {
+			operacao = document.getElementById('td' + k).innerHTML
+			//LOAD
+			registrador = operacao.split(' ')[2], dado = operacao.split(' ')[1], operacao = operacao.split(' ')[0]
+			if (operacao == 'LOAD') {
+				//Adiciona no IR
+				document.getElementById('input5').innerHTML = operacao
+
+				document.getElementById('input6').innerHTML = operacao
+				for (let k = 1; k <= 4; k++) {
+					if (registrador == 'R' + k) {
+						document.getElementById('input' + k).innerHTML = dado
+					}
+				}
+			}
+			//STO
+			if (operacao == 'STO') {
+				//Adiciona no IR
+				document.getElementById('input5').innerHTML = operacao
+
+				document.getElementById('input6').innerHTML = operacao
+				document.getElementById('td' + dado).innerHTML = document.getElementById('input' + registrador[1]).innerHTML
+			}
+		}
+	}
+}
