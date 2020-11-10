@@ -20,7 +20,6 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" type="text/css" href="./src/css/index.css" />
-		<script type="text/javascript" src="./src/js/index.js"></script>
 	</head>
 	<body>
 		<div id="MenuDeNavegacao">
@@ -226,8 +225,8 @@
 						<text x="625" y="740" fill="black" id="input6">####</text>
 
 						<text x="155" y="750" fill="black" id="text7">ULA</text>
-						<text x="80" y="660" fill="black" id="input7_1">00000</text>
-						<text x="215" y="660" fill="black" id="input7_2">00000</text>
+						<text x="90" y="660" fill="black" id="input7_1">0000</text>
+						<text x="217" y="660" fill="black" id="input7_2">0000</text>
 					</svg>
 				</div>
 				<div class="col-md-3">
@@ -249,72 +248,72 @@
 								</thead>
 
 								<tbody id="CorpoDeDados">
-									<tr class="WhiteColorImplement" id="tr1">
-										<th scope="row">1</th>
+									<tr class="" id="tr1">
+										<th id="th1" scope="row">1</th>
 										<td id="td1"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr2">
-										<th scope="row">2</th>
+									<tr class="" id="tr2">
+										<th id="th2" scope="row">2</th>
 										<td id="td2"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr3">
-										<th scope="row">3</th>
+									<tr class="" id="tr3">
+										<th id="th3" scope="row">3</th>
 										<td id="td3"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr4">
-										<th scope="row">4</th>
+									<tr class="" id="tr4">
+										<th id="th4" scope="row">4</th>
 										<td id="td4"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr5">
-										<th scope="row">5</th>
+									<tr class="" id="tr5">
+										<th id="th5" scope="row">5</th>
 										<td id="td5"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr6">
-										<th scope="row">6</th>
+									<tr class="" id="tr6">
+										<th id="th6" scope="row">6</th>
 										<td id="td6"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr7">
-										<th scope="row">7</th>
+									<tr class="" id="tr7">
+										<th id="th7" scope="row">7</th>
 										<td id="td7"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr8">
-										<th scope="row">8</th>
+									<tr class="" id="tr8">
+										<th id="th8" scope="row">8</th>
 										<td id="td8"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr9">
-										<th scope="row">9</th>
+									<tr class="" id="tr9">
+										<th id="th9" scope="row">9</th>
 										<td id="td9"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr10">
-										<th scope="row">10</th>
+									<tr class="" id="tr10">
+										<th id="th10" scope="row">10</th>
 										<td id="td10"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr11">
-										<th scope="row">11</th>
+									<tr class="" id="tr11">
+										<th id="th11" scope="row">11</th>
 										<td id="td11"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr12">
-										<th scope="row">12</th>
+									<tr class="" id="tr12">
+										<th id="th12" scope="row">12</th>
 										<td id="td12"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr13">
-										<th scope="row">13</th>
+									<tr class="" id="tr13">
+										<th id="th13" scope="row">13</th>
 										<td id="td13"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr14">
-										<th scope="row">14</th>
+									<tr class="" id="tr14">
+										<th id="th14" scope="row">14</th>
 										<td id="td14"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr15">
-										<th scope="row">15</th>
+									<tr class="" id="tr15">
+										<th id="th15" scope="row">15</th>
 										<td id="td15"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr16">
-										<th scope="row">16</th>
+									<tr class="" id="tr16">
+										<th id="th16" scope="row">16</th>
 										<td id="td16"></td>
 									</tr>
-									<tr class="WhiteColorImplement" id="tr17">
-										<th scope="row">17</th>
+									<tr class="" id="tr17">
+										<th id="th17" scope="row">17</th>
 										<td id="td17"></td>
 									</tr>
 								</tbody>
@@ -347,7 +346,7 @@
 				"17",
 			];
 
-			var Instrucoes = ["LOAD", "STO", "ADD", "SUB", "DIV"];
+			var Instrucoes = ["LOAD", "STO", "ADD", "SUB", "DIV", "MULT"];
 			var Registradores = ["R1", "R2", "R3", "R4", "IR"];
 
 			var R1 = 0;
@@ -355,6 +354,8 @@
 			var R3 = 0;
 			var R4 = 0;
 		</script>
+		<script type="text/javascript" src="./src/js/index.js"></script>
+		<script src="./src/js/dados.js"></script>
 		<script
 			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
