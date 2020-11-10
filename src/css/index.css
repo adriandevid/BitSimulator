@@ -34,11 +34,15 @@ p {
 	font-weight: bolder;
 }
 
-.WhiteColorImplement {
-	background-color: white;
-}
-
 .row {
 	margin-top: 35px;
 }
 
+/* Mudar de cor */
+.MudarCorRect {
+	fill: green;
+}
+
+.MudarCorTable {
+	background: green;
+}
