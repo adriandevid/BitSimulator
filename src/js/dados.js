@@ -243,24 +243,23 @@ function AdicionarCalculosNaView(DadosGeral) {
 	EnderecoDaMemoriaTD = document.getElementById("td" + ContadorDeInstrucoes);
 	EnderecoDaMemoriaTH = document.getElementById("th" + ContadorDeInstrucoes);
 
-	let cont = 0,
-		intervalo,
-		ChangeColor = () => {
-			console.log(cont);
-			if (cont <= 2) {
-				if (cont == 0) {
-					PC_Input.innerHTML = ContadorDeInstrucoes;
-					MudarCorRect(PC_Rect);
-					ContadorDeInstrucoes++;
-				} else if (cont == 1) {
-					MudarCorRect(UC_Rect);
-				} else {
-					MudarCorTable(EnderecoDaMemoriaTD);
-					MudarCorTable(EnderecoDaMemoriaTH);
-					setTimeout(ChangeColorIfInstrucao, 1000);
-				}
-				cont == 2 ? clearInterval(intervalo) : cont++;
+	let ChangeColor = () => {
+			if (EnderecoDaMemoriaTD.innerHTML == "") {
+				return;
 			}
+			setTimeout(() => {
+				PC_Input.innerHTML = ContadorDeInstrucoes;
+				MudarCorRect(PC_Rect);
+				ContadorDeInstrucoes++;
+			}, 1000);
+			setTimeout(() => {
+				MudarCorRect(UC_Rect);
+			}, 2000);
+			setTimeout(() => {
+				MudarCorTable(EnderecoDaMemoriaTD);
+				MudarCorTable(EnderecoDaMemoriaTH);
+				setTimeout(ChangeColorIfInstrucao, 1000);
+			}, 3000);
 		},
 		ChangeColorIfInstrucao = () => {
 			NextLine = DadosGeral[ContadorDeIndexDados];
@@ -278,6 +277,8 @@ function AdicionarCalculosNaView(DadosGeral) {
 				UC_Input.innerHTML = InstrucaoRegister;
 				MudarCorRect(UC_Rect);
 				ResolveInstructions(InstrucaoRegister, Endereco, Reg1, Reg2, Reg3);
+			} else {
+				AdicionarCalculosNaView(DadosGeral);
 			}
 		},
 		ResolveInstructions = (Instrucao, Endereco, Reg1, Reg2, Reg3) => {
@@ -301,6 +302,9 @@ function AdicionarCalculosNaView(DadosGeral) {
 							4 - document.getElementById("td" + Endereco).innerHTML.length
 						) + document.getElementById("td" + Endereco).innerHTML;
 				}, 5000);
+				setTimeout(() => {
+					AdicionarCalculosNaView(DadosGeral);
+				}, 6000);
 			} else if (Instrucao == "STO") {
 				setTimeout(function () {
 					MudarCorRect(document.getElementById(Reg1));
@@ -313,6 +317,9 @@ function AdicionarCalculosNaView(DadosGeral) {
 						"td" + Endereco
 					).innerHTML = document.getElementById("input" + Reg1[1]).innerHTML;
 				}, 5000);
+				setTimeout(() => {
+					AdicionarCalculosNaView(DadosGeral);
+				}, 6000);
 			} else if (Instrucao == "ADD") {
 				let Reg1_input = document.getElementById("input" + Reg1[1]),
 					Reg2_input = document.getElementById("input" + Reg2[1]),
@@ -335,6 +342,9 @@ function AdicionarCalculosNaView(DadosGeral) {
 					let sum = +Reg1_input.innerHTML + +Reg2_input.innerHTML;
 					Reg3_input.innerHTML = "0".repeat(4 - sum.toString().length) + sum;
 				}, 6000);
+				setTimeout(() => {
+					AdicionarCalculosNaView(DadosGeral);
+				}, 7000);
 			} else if (Instrucao == "SUB") {
 				let Reg1_input = document.getElementById("input" + Reg1[1]),
 					Reg2_input = document.getElementById("input" + Reg2[1]),
@@ -357,6 +367,9 @@ function AdicionarCalculosNaView(DadosGeral) {
 					let sub = +Reg1_input.innerHTML - +Reg2_input.innerHTML;
 					Reg3_input.innerHTML = "0".repeat(4 - sub.toString().length) + sub;
 				}, 6000);
+				setTimeout(() => {
+					AdicionarCalculosNaView(DadosGeral);
+				}, 7000);
 			} else if (Instrucao == "DIV") {
 				let Reg1_input = document.getElementById("input" + Reg1[1]),
 					Reg2_input = document.getElementById("input" + Reg2[1]),
@@ -382,12 +395,15 @@ function AdicionarCalculosNaView(DadosGeral) {
 							: "Impossível Dividir";
 					Reg3_input.innerHTML = "0".repeat(4 - div.toString().length) + div;
 				}, 6000);
+				setTimeout(() => {
+					AdicionarCalculosNaView(DadosGeral);
+				}, 7000);
 			}
 		};
-
-	intervalo = setInterval(ChangeColor, 1000);
+	ChangeColor();
 }
 
+//Timer para chamar a função
 function IniciarPercusoDeInstrucoes() {
 	ColetarDadosDasFuncionalidades();
 	AdicionarCalculosNaView(DadosGeral);
