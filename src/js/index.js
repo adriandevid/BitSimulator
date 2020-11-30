@@ -21,7 +21,12 @@ const ColetarDadosDasFuncionalidades = () => {
 				endereco: Endereco,
 				registrador1: Registrador,
 			});
-		} else if (Instrucao == "ADD" || Instrucao == "SUB" || Instrucao == "DIV") {
+		} else if (
+			Instrucao == "ADD" ||
+			Instrucao == "SUB" ||
+			Instrucao == "DIV" ||
+			Instrucao == "MULT"
+		) {
 			let Registrador1 = ValorDoEndereco[1],
 				Registrador2 = ValorDoEndereco[2],
 				RegistradorArmazenamento = ValorDoEndereco[3];

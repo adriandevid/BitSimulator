@@ -26,7 +26,8 @@ function AdicionarComando() {
 						InstrucaoDecomposta.length == 4 &&
 						(InstrucaoDecomposta[0] == "ADD" ||
 							InstrucaoDecomposta[0] == "SUB" ||
-							InstrucaoDecomposta[0] == "DIV")
+							InstrucaoDecomposta[0] == "DIV" ||
+							InstrucaoDecomposta[0] == "MULT")
 					) {
 						Regist = [];
 						Regist.push(InstrucaoDecomposta[1]);
@@ -283,17 +284,13 @@ function AdicionarCalculosNaView(DadosGeral) {
 		},
 		ResolveInstructions = (Instrucao, Endereco, Reg1, Reg2, Reg3) => {
 			setTimeout(function () {
-				PC_Input.innerHTML = ContadorDeInstrucoes;
-				MudarCorRect(PC_Rect);
-			}, 2000);
-			setTimeout(function () {
 				MudarCorRect(IR_Rect);
-			}, 3000);
+			}, 2000);
 			if (Instrucao == "LOAD") {
 				setTimeout(function () {
 					MudarCorTable(document.getElementById("td" + Endereco));
 					MudarCorTable(document.getElementById("th" + Endereco));
-				}, 4000);
+				}, 3000);
 
 				setTimeout(function () {
 					MudarCorRect(document.getElementById(Reg1));
@@ -301,14 +298,14 @@ function AdicionarCalculosNaView(DadosGeral) {
 						"0".repeat(
 							4 - document.getElementById("td" + Endereco).innerHTML.length
 						) + document.getElementById("td" + Endereco).innerHTML;
-				}, 5000);
+				}, 4000);
 				setTimeout(() => {
 					AdicionarCalculosNaView(DadosGeral);
-				}, 6000);
+				}, 5000);
 			} else if (Instrucao == "STO") {
 				setTimeout(function () {
 					MudarCorRect(document.getElementById(Reg1));
-				}, 4000);
+				}, 3000);
 
 				setTimeout(function () {
 					MudarCorTable(document.getElementById("td" + Endereco));
@@ -316,10 +313,10 @@ function AdicionarCalculosNaView(DadosGeral) {
 					document.getElementById(
 						"td" + Endereco
 					).innerHTML = document.getElementById("input" + Reg1[1]).innerHTML;
-				}, 5000);
+				}, 4000);
 				setTimeout(() => {
 					AdicionarCalculosNaView(DadosGeral);
-				}, 6000);
+				}, 5000);
 			} else if (Instrucao == "ADD") {
 				let Reg1_input = document.getElementById("input" + Reg1[1]),
 					Reg2_input = document.getElementById("input" + Reg2[1]),
@@ -330,21 +327,21 @@ function AdicionarCalculosNaView(DadosGeral) {
 				setTimeout(function () {
 					MudarCorRect(Reg1);
 					MudarCorRect(Reg2);
-				}, 4000);
+				}, 3000);
 				setTimeout(function () {
 					MudarCorRect(ULA_Rect);
 					ULA_Input1.innerHTML = Reg1_input.innerHTML;
 					ULA_Input2.innerHTML = Reg2_input.innerHTML;
-				}, 5000);
+				}, 4000);
 
 				setTimeout(function () {
 					MudarCorRect(Reg3);
 					let sum = +Reg1_input.innerHTML + +Reg2_input.innerHTML;
 					Reg3_input.innerHTML = "0".repeat(4 - sum.toString().length) + sum;
-				}, 6000);
+				}, 5000);
 				setTimeout(() => {
 					AdicionarCalculosNaView(DadosGeral);
-				}, 7000);
+				}, 6000);
 			} else if (Instrucao == "SUB") {
 				let Reg1_input = document.getElementById("input" + Reg1[1]),
 					Reg2_input = document.getElementById("input" + Reg2[1]),
@@ -355,21 +352,21 @@ function AdicionarCalculosNaView(DadosGeral) {
 				setTimeout(function () {
 					MudarCorRect(Reg1);
 					MudarCorRect(Reg2);
-				}, 4000);
+				}, 3000);
 				setTimeout(function () {
 					MudarCorRect(ULA_Rect);
 					ULA_Input1.innerHTML = Reg1_input.innerHTML;
 					ULA_Input2.innerHTML = Reg2_input.innerHTML;
-				}, 5000);
+				}, 4000);
 
 				setTimeout(function () {
 					MudarCorRect(Reg3);
 					let sub = +Reg1_input.innerHTML - +Reg2_input.innerHTML;
 					Reg3_input.innerHTML = "0".repeat(4 - sub.toString().length) + sub;
-				}, 6000);
+				}, 5000);
 				setTimeout(() => {
 					AdicionarCalculosNaView(DadosGeral);
-				}, 7000);
+				}, 6000);
 			} else if (Instrucao == "DIV") {
 				let Reg1_input = document.getElementById("input" + Reg1[1]),
 					Reg2_input = document.getElementById("input" + Reg2[1]),
@@ -380,12 +377,12 @@ function AdicionarCalculosNaView(DadosGeral) {
 				setTimeout(function () {
 					MudarCorRect(Reg1);
 					MudarCorRect(Reg2);
-				}, 4000);
+				}, 3000);
 				setTimeout(function () {
 					MudarCorRect(ULA_Rect);
 					ULA_Input1.innerHTML = Reg1_input.innerHTML;
 					ULA_Input2.innerHTML = Reg2_input.innerHTML;
-				}, 5000);
+				}, 4000);
 
 				setTimeout(function () {
 					MudarCorRect(Reg3);
@@ -394,10 +391,35 @@ function AdicionarCalculosNaView(DadosGeral) {
 							? +Reg1_input.innerHTML / +Reg2_input.innerHTML
 							: "Impossível Dividir";
 					Reg3_input.innerHTML = "0".repeat(4 - div.toString().length) + div;
-				}, 6000);
+				}, 5000);
 				setTimeout(() => {
 					AdicionarCalculosNaView(DadosGeral);
-				}, 7000);
+				}, 6000);
+			} else if (Instrucao == "MULT") {
+				let Reg1_input = document.getElementById("input" + Reg1[1]),
+					Reg2_input = document.getElementById("input" + Reg2[1]),
+					Reg3_input = document.getElementById("input" + Reg3[1]);
+				Reg1 = document.getElementById(Reg1);
+				Reg2 = document.getElementById(Reg2);
+				Reg3 = document.getElementById(Reg3);
+				setTimeout(function () {
+					MudarCorRect(Reg1);
+					MudarCorRect(Reg2);
+				}, 3000);
+				setTimeout(function () {
+					MudarCorRect(ULA_Rect);
+					ULA_Input1.innerHTML = Reg1_input.innerHTML;
+					ULA_Input2.innerHTML = Reg2_input.innerHTML;
+				}, 4000);
+
+				setTimeout(function () {
+					MudarCorRect(Reg3);
+					let mult = +Reg1_input.innerHTML * +Reg2_input.innerHTML;
+					Reg3_input.innerHTML = "0".repeat(4 - mult.toString().length) + mult;
+				}, 5000);
+				setTimeout(() => {
+					AdicionarCalculosNaView(DadosGeral);
+				}, 6000);
 			}
 		};
 	ChangeColor();
