@@ -469,7 +469,7 @@ function ResetarMemoria() {
 		(InstrucoesDeEntrada = []),
 		(DadosDeEntrada = []);
 
-	(PC_Input.innerHTML = 00),
+	(PC_Input.innerHTML = "00"),
 		(Reg1_Input = 0000),
 		(Reg2_Input = 0000),
 		(Reg3_Input = 0000),
