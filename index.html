@@ -22,52 +22,59 @@
 		<link rel="stylesheet" type="text/css" href="./src/css/index.css" />
 	</head>
 	<body>
-		<div id="MenuDeNavegacao">
-			<nav
-				class="navbar navbar-expand-lg navbar-light"
-				width="100%"
-				id="navbarPrincipal"
-			>
-				<div style="color: white; font-size: 1.7em">BitSimulator</div>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<form class="form-inline my-2 my-lg-0" id="Formulario">
-						<li
+		<nav class="navbar navbar-expand-lg navbar-light" id="navbarPrincipal">
+			<div id="navbarSupportedContent">
+				<ul id="ul-navbar">
+					<li>
+						<div style="color: white; font-size: 1.9em; font-weight: 600">
+							BitSimulator
+						</div>
+					</li>
+					<li style="margin-left: 50px">
+						<a href="./Apresentation.html">Home</a>
+					</li>
+					<li class="li-navbar">
+						<div class="li-intrucoes" onclick="AlternarVisibilidade()">
+							Instruções
+						</div>
+					</li>
+					<li>
+						<button
 							class="botaoiniciar btn btn-success btn-sm mr-3"
 							onclick="IniciarPercusoDeInstrucoes()"
 						>
 							Iniciar
-						</li>
+						</button>
+					</li>
+					<li>
 						<input
 							id="EntradaDeInstrucao"
-							class="form-control mr-sm-2"
-							type="search"
 							placeholder="Inserir Comando"
 							aria-label="Inserir Comando"
 							oninput="DeixarMaiusculo()"
 						/>
-						<li
+					</li>
+					<li>
+						<button
 							class="btn btn-success btn-sm mr-3"
 							onclick="AdicionarComando()"
 						>
 							Adicionar
-						</li>
-						<button class="btn btn-success btn-sm">Reset Memory</button>
-					</form>
-				</div>
-			</nav>
-		</div>
+						</button>
+					</li>
+					<li>
+						<button
+							class="btn btn-success btn-sm"
+							style="width: max-content"
+							onclick="ResetarMemoria()"
+						>
+							Reset Memory
+						</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
 		<div class="container-fluid">
 			<div class="row mt-5" id="Animacoes">
 				<div class="col-md-9 pt-3 pb-4" style="position: relative">
@@ -323,10 +330,24 @@
 				</div>
 			</div>
 		</div>
+		<div id="Instrucoes" class="classHidden">
+			<div id="div-container">
+				<h1>Uhuuuuu</h1>
+				<footer style="position: absolute; bottom: 20px; right: 0px; left: 0px;"">
+					<button
+						class="btn btn-success btn-sm"
+						style="background-color: green; color: white; width: 120px; height: 50px; font-size: 1.5em;"
+						onclick="AlternarVisibilidade()"
+					>
+						Fechar
+					</button>
+				</footer>
+			</div>
+		</div>
 		<script type="text/javascript">
-			var InstrucoesDeEntrada = [];
-			var DadosDeEntrada = [];
-			var EnderecoInstrucaoDado = [
+			let InstrucoesDeEntrada = [];
+			let DadosDeEntrada = [];
+			let EnderecoInstrucaoDado = [
 				"1",
 				"2",
 				"3",
@@ -346,13 +367,13 @@
 				"17",
 			];
 
-			var Instrucoes = ["LOAD", "STO", "ADD", "SUB", "DIV", "MULT"];
-			var Registradores = ["R1", "R2", "R3", "R4", "IR"];
+			let Instrucoes = ["LOAD", "STO", "ADD", "SUB", "DIV", "MULT"];
+			let Registradores = ["R1", "R2", "R3", "R4", "IR"];
 
-			var R1 = 0;
-			var R2 = 0;
-			var R3 = 0;
-			var R4 = 0;
+			let R1 = 0;
+			let R2 = 0;
+			let R3 = 0;
+			let R4 = 0;
 		</script>
 		<script type="text/javascript" src="./src/js/index.js"></script>
 		<script src="./src/js/dados.js"></script>

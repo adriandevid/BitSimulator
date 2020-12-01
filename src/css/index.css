@@ -3,27 +3,88 @@
 	padding: 0;
 }
 
+body {
+	height: auto;
+	width: 100%;
+}
+
 .StyleFont {
 	fill: white;
 	border-style: ridge;
 	stroke: green;
 }
 
-#MenuDeNavegacao {
-	background: green;
-	padding: 13px;
+.navbar {
+	padding: 15px;
+	margin: 0px;
 }
 
-#navbarSupportedContent {
-	flex-direction: row-reverse;
+#navbarPrincipal {
+	background-color: green;
+}
+
+#subdiv-navbar {
+	display: flex;
+	align-items: center;
+}
+
+#ul-navbar {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+.li-navbar {
+	margin-left: 25px;
+	margin-right: 1000px;
+}
+
+a,
+a:visited {
+	color: white;
+	font-weight: 500;
+	font-size: 1.3em;
+}
+
+a:hover {
+	text-decoration: none;
+	color: rgb(30, 30, 30);
+}
+
+.li-intrucoes {
+	color: white;
+	font-weight: 500;
+	font-size: 1.3em;
+}
+
+.li-intrucoes:hover {
+	color: rgb(30, 30, 30);
+	cursor: pointer;
+}
+
+#EntradaDeInstrucao {
+	margin-right: 15px;
+	padding: 5px;
+	border-radius: 7px;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#EntradaDeInstrucao:focus {
+	margin-right: 15px;
+	padding: 5px;
+	border-radius: 7px;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 p {
 	color: white;
-}
-
-.width-100 {
-	height: 100vh;
 }
 
 .btn-success {
@@ -45,4 +106,44 @@ p {
 
 .MudarCorTable {
 	background: green;
+}
+
+#Instrucoes {
+	position: absolute;
+	text-align: center;
+	background-color: rgba(30, 30, 30, 0.5);
+	width: 100%;
+	height: 1100px;
+	bottom: 0px;
+	top: 0px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+
+.classShow {
+	visibility: visible;
+}
+
+.classHidden {
+	visibility: hidden;
+}
+
+#div-container {
+	background-color: white;
+	position: absolute;
+	top: 270px;
+	width: 70%;
+	height: 60%;
+}
+
+.bg-new-image {
+	background-image: url("../image/programming-1873854_1920.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: fixed;
 }
