@@ -5,7 +5,8 @@ let Regist = [],
 	ValorDeCadaTabela,
 	contadorDePassos = 0,
 	EnderoBusca = 1,
-	IsEnderecoContar = 0;
+	IsEnderecoContar = 0,
+	InputBox;
 
 function DeixarMaiusculo() {
 	document.getElementById("EntradaDeInstrucao").value = document
@@ -14,11 +15,11 @@ function DeixarMaiusculo() {
 }
 
 function AdicionarComando() {
-	var valorDeInput = document.getElementById("EntradaDeInstrucao").value;
-	var InstrucaoDecomposta = valorDeInput.split(" ");
-	var contadorDeCond = 0;
+	let valorDeInput = document.getElementById("EntradaDeInstrucao").value;
+	let InstrucaoDecomposta = valorDeInput.split(" ");
+	let contadorDeCond = 0;
 	if (contadorDeEnderecosCompletos != 17) {
-		for (var contador = 0; contador < Instrucoes.length; contador++) {
+		for (let contador = 0; contador < Instrucoes.length; contador++) {
 			contadorDeCond += 1;
 			if (3 <= InstrucaoDecomposta.length <= 4) {
 				if (InstrucaoDecomposta[0] == Instrucoes[contador]) {
@@ -35,12 +36,12 @@ function AdicionarComando() {
 						Regist.push(InstrucaoDecomposta[3]);
 
 						for (
-							var contador = 0;
+							let contador = 0;
 							contador < Registradores.length;
 							contador++
 						) {
 							for (
-								var contadorRegistrador = 0;
+								let contadorRegistrador = 0;
 								contadorRegistrador < Regist.length;
 								contadorRegistrador++
 							) {
@@ -50,7 +51,7 @@ function AdicionarComando() {
 							}
 						}
 						if (IsRegistradorContar == 3) {
-							var AlertErrorColor = document.getElementById(
+							let AlertErrorColor = document.getElementById(
 								"EntradaDeInstrucao"
 							);
 							AlertErrorColor.style = "border:2px solid green;";
@@ -64,7 +65,7 @@ function AdicionarComando() {
 							contadorDeCond = 0;
 							break;
 						} else {
-							var AlertErrorColor = document.getElementById(
+							let AlertErrorColor = document.getElementById(
 								"EntradaDeInstrucao"
 							);
 							AlertErrorColor.style = "border:2px solid red;";
@@ -82,7 +83,7 @@ function AdicionarComando() {
 								InstrucaoDecomposta[0] == "STO")
 						) {
 							for (
-								var contador = 0;
+								let contador = 0;
 								contador < EnderecoInstrucaoDado.length;
 								contador++
 							) {
@@ -93,7 +94,7 @@ function AdicionarComando() {
 									Regist.push(InstrucaoDecomposta[2]);
 
 									for (
-										var contador = 0;
+										let contador = 0;
 										contador < Registradores.length;
 										contador++
 									) {
@@ -102,7 +103,7 @@ function AdicionarComando() {
 										}
 									}
 									if (IsRegistradorContar == 2) {
-										var AlertErrorColor = document.getElementById(
+										let AlertErrorColor = document.getElementById(
 											"EntradaDeInstrucao"
 										);
 										AlertErrorColor.style = "border:2px solid green;";
@@ -117,7 +118,7 @@ function AdicionarComando() {
 										IsEnderecoContar = 0;
 										break;
 									} else {
-										var AlertErrorColor = document.getElementById(
+										let AlertErrorColor = document.getElementById(
 											"EntradaDeInstrucao"
 										);
 										AlertErrorColor.style = "border:2px solid red;";
@@ -134,7 +135,7 @@ function AdicionarComando() {
 								}
 							}
 							if (IsEnderecoContar == EnderecoInstrucaoDado.length) {
-								var AlertErrorColor = document.getElementById(
+								let AlertErrorColor = document.getElementById(
 									"EntradaDeInstrucao"
 								);
 								AlertErrorColor.style = "border:2px solid red;";
@@ -147,7 +148,7 @@ function AdicionarComando() {
 								break;
 							}
 						} else {
-							var AlertErrorColor = document.getElementById(
+							let AlertErrorColor = document.getElementById(
 								"EntradaDeInstrucao"
 							);
 							AlertErrorColor.style = "border:2px solid red;";
@@ -169,7 +170,7 @@ function AdicionarComando() {
 				parseInt(InstrucaoDecomposta[0]) != NaN
 			) {
 				//adicionar e criar tag de dado
-				var AlertErrorColor = document.getElementById("EntradaDeInstrucao");
+				let AlertErrorColor = document.getElementById("EntradaDeInstrucao");
 				AlertErrorColor.style = "border:2px solid green;";
 				DadosDeEntrada.push(valorDeInput);
 				contadorDeEnderecosCompletos += 1;
@@ -178,7 +179,7 @@ function AdicionarComando() {
 				IsRegistradorContar = 0;
 				IsEnderecoContar = 0;
 			} else {
-				var AlertErrorColor = document.getElementById("EntradaDeInstrucao");
+				let AlertErrorColor = document.getElementById("EntradaDeInstrucao");
 				AlertErrorColor.style = "border:2px solid red;";
 				alert(
 					"Ouve um erro na sua entrada, por favor revise o seu dado/instrução e adicione novamente!!"
@@ -189,13 +190,16 @@ function AdicionarComando() {
 			}
 		}
 	} else {
-		var AlertErrorColor = document.getElementById("EntradaDeInstrucao");
+		let AlertErrorColor = document.getElementById("EntradaDeInstrucao");
 		AlertErrorColor.style = "border:2px solid red;";
 		alert("Quantidade de dados/Instrucões excedeu o limite!!");
 		contadorDeCond = 0;
 		IsRegistradorContar = 0;
 		IsEnderecoContar = 0;
 	}
+	InputBox = document.getElementById("EntradaDeInstrucao");
+	InputBox.focus();
+	InputBox.value = "";
 }
 
 // Contador de espaço na memoria
@@ -429,4 +433,49 @@ function AdicionarCalculosNaView(DadosGeral) {
 function IniciarPercusoDeInstrucoes() {
 	ColetarDadosDasFuncionalidades();
 	AdicionarCalculosNaView(DadosGeral);
+}
+
+let containerHiddenShow = document.getElementById("Instrucoes");
+function AlternarVisibilidade() {
+	if (containerHiddenShow.classList.contains("classHidden")) {
+		containerHiddenShow.classList.add("classShow");
+		containerHiddenShow.classList.remove("classHidden");
+	} else {
+		containerHiddenShow.classList.add("classHidden");
+		containerHiddenShow.classList.remove("classShow");
+	}
+}
+
+function ResetarMemoria() {
+	let tdAtual;
+
+	for (let index = 1; index < 17; index++) {
+		tdAtual = document.getElementById("td" + index);
+		tdAtual.innerHTML = "";
+	}
+
+	(Regist = []),
+		(IsRegistradorContar = 0),
+		(contadorDeEnderecosCompletos = 0),
+		intervaloDeChamadaDeFuncao,
+		ValorDeCadaTabela,
+		(contadorDePassos = 0),
+		(EnderoBusca = 1),
+		(IsEnderecoContar = 0),
+		InputBox,
+		(ContadorDeInstrucoes = 1),
+		(ContadorDeIndexDados = 0),
+		(DadosGeral = []),
+		(InstrucoesDeEntrada = []),
+		(DadosDeEntrada = []);
+
+	(PC_Input.innerHTML = 00),
+		(Reg1_Input = 0000),
+		(Reg2_Input = 0000),
+		(Reg3_Input = 0000),
+		(Reg4_Input = 0000),
+		(IR_Input = "####"),
+		(UC_Input = "####"),
+		(ULA_Input1 = 0000),
+		(ULA_Input2 = 0000);
 }
