@@ -116,7 +116,6 @@ p {
 	height: 1100px;
 	bottom: 0px;
 	top: 0px;
-	text-align: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -134,7 +133,10 @@ p {
 
 #div-container {
 	background-color: white;
-	position: absolute;
+	text-align: left;
+	overflow-y: scroll;
+	padding: 35px;
+	margin-bottom: 25px;
 	top: 270px;
 	width: 70%;
 	height: 60%;
