@@ -332,17 +332,88 @@
 		</div>
 		<div id="Instrucoes" class="classHidden">
 			<div id="div-container">
-				<h1>Uhuuuuu</h1>
-				<footer style="position: absolute; bottom: 20px; right: 0px; left: 0px;"">
-					<button
-						class="btn btn-success btn-sm"
-						style="background-color: green; color: white; width: 120px; height: 50px; font-size: 1.5em;"
-						onclick="AlternarVisibilidade()"
-					>
-						Fechar
-					</button>
-				</footer>
+				<div style="color: black">
+					<h2 style="margin-bottom: 16px">Instruções:</h2>
+					<div style="margin-left: 20px">
+						<p style="color: black; font-size: 1.3em">
+							<b> LOAD: </b>
+							É a busca do dado em um endereço que será carregado para o
+							registrador.
+						</p>
+						<p style="color: black; font-size: 1.3em">
+							<b> STO: </b>
+							É o armazenamento do dado que está no registrador para a memória
+						</p>
+
+						<p style="color: black; font-size: 1.3em">
+							Na instrução LOAD, podemos pegar valores armazenados na memória, e
+							inseri-los nos registradores, respeitando a ordem onde primeiro
+							deve vir a instrução, em seguida o endereço da memória onde contém
+							o valor e só em seguida o registrador onde será armazenado.
+						</p>
+						<p style="color: black; font-size: 1.1em">
+							<b> Ex: LOAD 2 R1 </b>
+						</p>
+						<p style="color: black; font-size: 1.3em">
+							Já a instrução STO, acontece o contrário da instrução LOAD, pois
+							agora pegaremos os valores no registrador e colocaremos no
+							endereço, respeitando também a hierarquia onde primeiro vem
+							instrução, em seguida o endereço e só após o registrador
+						</p>
+						<p style="color: black; font-size: 1.1em">
+							<b> Ex: STO 2 R4 </b>
+						</p>
+					</div>
+					<h2 style="margin-bottom: 16px">Operandos:</h2>
+
+					<div style="margin-left: 20px">
+						<p style="color: black; font-size: 1.3em">
+							<b> ADD: </b>
+							Soma os valores armazenados nos registradores
+						</p>
+						<p style="color: black; font-size: 1.3em">
+							<b> SUB: </b>
+							Subtrai os valores armazenados nos registradores
+						</p>
+						<p style="color: black; font-size: 1.3em">
+							<b> MULT: </b>
+							Multiplica os valores armazenados nos registradores
+						</p>
+						<p style="color: black; font-size: 1.3em">
+							<b> DIV: </b>
+							Divide os valores armazenados nos registradores
+						</p>
+
+						<p style="color: black; font-size: 1.3em">
+							Dentro dos operandos (ADD, SUB. MULT e DIV), funcionará sempre da
+							mesma forma, o primeiro e o segundo registrador (Rx e Rx,
+							respectivamente, podendo ser o primeiro ao quarto registrador)
+							receberão os valores a serem processados. Após a conclusão deste
+							processo, o terceiro registrador (Rx) receberá o resultado da
+							operação entre Rx e Rx.
+						</p>
+						<p style="color: black; font-size: 1.1em">
+							<b> Ex: MULT R1 R3 R4 </b>
+						</p>
+
+						<h5>Registradores : R1, R2, R3, R4</h5>
+					</div>
+				</div>
 			</div>
+			<button
+				class="btn btn-success btn-sm"
+				style="
+					background-color: green;
+					color: white;
+					width: 220px;
+					height: 70px;
+					border-radius: 23px;
+					font-size: 2em;
+				"
+				onclick="AlternarVisibilidade()"
+			>
+				Fechar
+			</button>
 		</div>
 		<script type="text/javascript">
 			let InstrucoesDeEntrada = [];

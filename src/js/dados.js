@@ -288,7 +288,7 @@ function AdicionarCalculosNaView(DadosGeral) {
 		},
 		ResolveInstructions = (Instrucao, Endereco, Reg1, Reg2, Reg3) => {
 			setTimeout(function () {
-				MudarCorRect(IR_Rect);
+				MudarCorRect(UC_Rect);
 			}, 2000);
 			if (Instrucao == "LOAD") {
 				setTimeout(function () {
@@ -316,7 +316,9 @@ function AdicionarCalculosNaView(DadosGeral) {
 					MudarCorTable(document.getElementById("th" + Endereco));
 					document.getElementById(
 						"td" + Endereco
-					).innerHTML = document.getElementById("input" + Reg1[1]).innerHTML;
+					).innerHTML = document
+						.getElementById("input" + Reg1[1])
+						.innerHTML.replace(/^0+/, "");
 				}, 4000);
 				setTimeout(() => {
 					AdicionarCalculosNaView(DadosGeral);
@@ -454,28 +456,28 @@ function ResetarMemoria() {
 		tdAtual.innerHTML = "";
 	}
 
-	(Regist = []),
-		(IsRegistradorContar = 0),
-		(contadorDeEnderecosCompletos = 0),
-		intervaloDeChamadaDeFuncao,
-		ValorDeCadaTabela,
-		(contadorDePassos = 0),
-		(EnderoBusca = 1),
-		(IsEnderecoContar = 0),
-		InputBox,
-		(ContadorDeInstrucoes = 1),
-		(ContadorDeIndexDados = 0),
-		(DadosGeral = []),
-		(InstrucoesDeEntrada = []),
-		(DadosDeEntrada = []);
+	Regist = [];
+	IsRegistradorContar = 0;
+	contadorDeEnderecosCompletos = 0;
+	intervaloDeChamadaDeFuncao = undefined;
+	ValorDeCadaTabela = undefined;
+	contadorDePassos = 0;
+	EnderoBusca = 1;
+	IsEnderecoContar = 0;
+	InputBox = undefined;
+	ContadorDeInstrucoes = 1;
+	ContadorDeIndexDados = 0;
 
-	(PC_Input.innerHTML = "00"),
-		(Reg1_Input = 0000),
-		(Reg2_Input = 0000),
-		(Reg3_Input = 0000),
-		(Reg4_Input = 0000),
-		(IR_Input = "####"),
-		(UC_Input = "####"),
-		(ULA_Input1 = 0000),
-		(ULA_Input2 = 0000);
+	DadosGeral = [];
+	InstrucoesDeEntrada = [];
+	DadosDeEntrada = [];
+	PC_Input.innerHTML = "00";
+	Reg1_Input = 0000;
+	Reg2_Input = 0000;
+	Reg3_Input = 0000;
+	Reg4_Input = 0000;
+	IR_Input = "####";
+	UC_Input = "####";
+	ULA_Input1 = 0000;
+	ULA_Input2 = 0000;
 }
